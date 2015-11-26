@@ -1,0 +1,1 @@
+../../python/007-10001st-prime.py

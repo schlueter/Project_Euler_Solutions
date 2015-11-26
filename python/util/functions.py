@@ -11,3 +11,13 @@ def common_factors(target):
                 factors[factor] = factors_of_n.count(factor)
 
     return [f for f in factors.keys() for x in xrange(factors[f])]
+
+def nth_prime(n):
+    primes = [2]
+    for p in range(n - 1):
+        candidate = primes[-1] + 1
+        candidate_filter = lambda x: candidate % x == 0
+        while filter(candidate_filter, primes):
+            candidate = candidate + 1
+        primes.append(candidate)
+    return primes[-1]
