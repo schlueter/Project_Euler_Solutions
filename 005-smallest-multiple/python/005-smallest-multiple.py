@@ -1,0 +1,1 @@
+../../python/005-smallest-multiple.py
