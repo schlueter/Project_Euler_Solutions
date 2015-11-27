@@ -32,7 +32,7 @@ def primes_from_sieve(max):
         candidates = filter(lambda x: x % prime != 0, candidates)
 
 def integer_factorization(i):
-    primes = prime_numbers()
+    primes = primes_from_sieve(i + 1)
     prime = primes.next()
     while i != 1:
         if not i % prime:
