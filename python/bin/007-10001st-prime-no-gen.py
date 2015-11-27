@@ -11,6 +11,9 @@ sys.path.append(lib)
 from util.functions import nth_prime
 
 
+def main(target):
+    return nth_prime(target)
+
 if __name__ == "__main__":
 
     if len(sys.argv) < 2:
@@ -18,4 +21,5 @@ if __name__ == "__main__":
         exit(1)
 
     target = int(sys.argv[1])
-    print(nth_prime(target))
+
+    print main(target)
