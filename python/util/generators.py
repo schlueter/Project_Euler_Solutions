@@ -23,6 +23,14 @@ def prime_numbers():
             candidate = candidate + 1
         primes.append(candidate)
 
+def primes_from_sieve(max):
+    yield 2
+    candidates = range(3, max, 2)
+    while candidates:
+        prime = candidates.pop(0)
+        yield prime
+        candidates = filter(lambda x: x % prime != 0, candidates)
+
 def integer_factorization(i):
     primes = prime_numbers()
     prime = primes.next()
