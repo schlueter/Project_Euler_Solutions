@@ -21,3 +21,13 @@ def nth_prime(n):
             candidate = candidate + 1
         primes.append(candidate)
     return primes[-1]
+
+def all_subseries(series, quantity):
+    list_of_all_subseries = []
+    while series > 10**quantity:
+        subseries = []
+        for i in range(quantity):
+            subseries.append(series / 10**i % 10)
+        series = series / 10
+        list_of_all_subseries.append(subseries)
+    return list_of_all_subseries
