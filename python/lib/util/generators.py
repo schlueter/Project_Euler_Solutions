@@ -24,12 +24,15 @@ def prime_numbers():
         primes.append(candidate)
 
 def primes_from_sieve(max):
-    yield 2
+    prime = 2
+    yield prime
     candidates = range(3, max, 2)
-    while candidates:
+    while prime < math.sqrt(max):
         prime = candidates.pop(0)
         yield prime
         candidates = filter(lambda x: x % prime != 0, candidates)
+    for candidate in candidates:
+        yield candidate
 
 def integer_factorization(i):
     primes = primes_from_sieve(i + 1)

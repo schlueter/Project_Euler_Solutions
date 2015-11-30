@@ -1,3 +1,5 @@
+import math
+
 from generators import integer_factorization
 
 
@@ -11,6 +13,16 @@ def common_factors(target):
                 factors[factor] = factors_of_n.count(factor)
 
     return [f for f in factors.keys() for x in xrange(factors[f])]
+
+def primes_from_sieve(max):
+    primes = [2]
+    candidates = range(3, max, 2)
+    prime = 2
+    while prime < math.sqrt(max):
+        prime = candidates.pop(0)
+        primes.append(prime)
+        candidates = filter(lambda x: x % prime != 0, candidates)
+    return primes + candidates
 
 def nth_prime(n):
     primes = [2]
