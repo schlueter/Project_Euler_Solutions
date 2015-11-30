@@ -12,8 +12,9 @@ from util.functions import all_subseries
 
 
 def main(series, quantity):
-    sub_series = all_subseries(series, quantity)
-    products = map(lambda l: reduce(lambda x, y: x*y, l), sub_series)
+    subseries = all_subseries(series, quantity)
+    products = filter(lambda s: not 0 in s, subseries)
+    products = map(lambda l: reduce(lambda x, y: x*y, l), products)
     products.sort()
     return products.pop()
 
